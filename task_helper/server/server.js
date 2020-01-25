@@ -20,7 +20,7 @@ MongoClient.connect('mongodb://localhost:27017')
 
 
 });
-// .catch(console.error);
+.catch(console.error);
 
 
 app.listen(3000, function () {
