@@ -7,9 +7,8 @@ const createRouter = require('./helpers/create_router.js');
 
 const cors = require('cors');
 
-app.use(cors())
-
 app.use(bodyParser.json());
+app.use(cors())
 
 MongoClient.connect('mongodb://localhost:27017')
 .then((client) => {
@@ -17,9 +16,8 @@ MongoClient.connect('mongodb://localhost:27017')
   const tasksCollection = db.collection('tasks');
   const tasksRouter = createRouter(tasksCollection);
   app.use('/api/tasks', tasksRouter);
+})
 
-
-});
 .catch(console.error);
 
 

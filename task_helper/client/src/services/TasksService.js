@@ -1,8 +1,8 @@
-const baseURL = 'http://localhost:3000/api/tasks'
+const baseURL = 'http://localhost:3000/api/tasks/'
 
 export default {
-  getsightings(){
+  getTasks(){
     return fetch(baseURL)
     .then(res => res.json())
-  }
+  },
 }
