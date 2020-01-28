@@ -1,9 +1,9 @@
 <template lang="html">
 
-  <form>
-    <ul>
+  <form v-on:submit.prevent="saveNewTask">
+    <!-- <ul>
       <li v-for="task in tasks">{{ task }}</li>
-    </ul>
+    </ul> -->
     <label for="new-task">Add a new Task:</label>
     <input id="new-task"  type="text" v-model="newTask">
     <input type="submit"  value="save new task">
@@ -29,6 +29,10 @@ export default {
     updateTask: function(task) {
       this.task = "";
 
+    },
+    saveNewTask: function() {
+      this.tasks.push(this.newTask);
+      this.newTask = "";
     }
   }
 }
