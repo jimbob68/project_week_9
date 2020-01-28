@@ -5,4 +5,30 @@ export default {
     return fetch(baseURL)
     .then(res => res.json())
   },
+
+  addTask(task) {
+    return fetch("http://localhost:3000/api/tasks/", {
+      method: "POST",
+      body: JSON.stringify(task),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(res => res.json())
+  },
+
+  updateTask(task) {
+    return fetch(baseURL + task._id, {
+      method: 'PUT',
+      body: JSON.stringify(task),
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(res => res.json())
+  },
+
+  deleteTask(id) {
+    return fetch(baseURL + id, {
+      method: 'DELETE'
+    })
+  }
 }

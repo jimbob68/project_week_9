@@ -1,6 +1,13 @@
 <template lang="html">
-  <form class="" >
 
+  <form>
+    <ul>
+      <li v-for="task in tasks">{{ task }}</li>
+    </ul>
+    <label for="new-task">Add a new Task:</label>
+    <input id="new-task"  type="text" v-model="newTask">
+    <input type="submit"  value="save new task">
+    <button v-on:click="updateTask('Brush Teeth')">Update Task:</button>
   </form>
 </template>
 
@@ -12,22 +19,18 @@ export default {
   name: 'tasks-day-form',
   data(){
     return {
-      tasks: []
+      tasks: ["task1", "task2", "task3"],
+      newTask: ""
+
+    }
+  },
+  methods: {
+
+    updateTask: function(task) {
+      this.task = "";
+
     }
   }
-  // methods: {
-  //   addTask(task){
-  //     task.preventDefault()
-  //     const task = {
-  //       name: this.name,
-  //       timeOfTask: {
-  //         morning: this.timeOfDay,
-  //         afternoon: this.timeOfDay,
-  //         evening: this.timeOfDay
-  //       }
-  //     }
-  //   }
-  // }
 }
 </script>
 
