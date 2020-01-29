@@ -6,10 +6,10 @@ export default {
     .then(res => res.json())
   },
 
-  addTask(task) {
+  postTask(payload) {
     return fetch("http://localhost:3000/api/tasks/", {
       method: "POST",
-      body: JSON.stringify(task),
+      body: JSON.stringify(payload),
       headers: {
         'Content-Type': 'application/json'
       }
